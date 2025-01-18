@@ -258,22 +258,22 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .teams-container {
-        grid-template-columns: 1fr; /* Çoklu sütunları tek sütuna indir */
-        gap: 15px; /* Boşluğu azalt */
+        grid-template-columns: 1fr; /* Tek sütuna indir */
+        gap: 15px; /* Boşlukları azalt */
     }
 
     .team {
-        width: 100%; /* Kart genişliğini tam yap */
+        width: 100%; /* Kart genişliği tamamen 100% */
     }
 
     .team img {
-        width: 100%; /* Görselleri %100 genişlikte göster */
-        height: auto; /* Yüksekliği orantılı yap */
+        width: 100%; /* Resimleri tam genişlikte göster */
+        height: auto; /* Yüksekliği otomatik yap */
     }
 
     .team-info {
         text-align: center; /* Bilgileri ortala */
-    }s
+    }
     .news img {
         max-width: 100%;
         margin: 10px 0;
@@ -296,17 +296,19 @@ body {
         padding: 10px;
     }
     .race-images {
-        grid-template-columns: 1fr; /* 3 sütundan 1 sütuna dönüş */
-        gap: 10px; /* Kenar boşluğunu biraz daha küçült */
+        grid-template-columns: 1fr; /* Tek sütuna indir */
+        gap: 15px; /* Boşluğu azalt */
+    }
+
+    .race {
+        width: 100%; /* Kart genişliğini 100% yap */
     }
 
     .race img {
-        width: 100%;
-        height: auto;
+        width: 100%; /* Resim genişliğini %100 yap */
+        height: auto; /* Yüksekliği orantılı tut */
     }
-    .race {
-        margin: 0 auto; /* Mobilde ortalama */
-    }
+
 
     .race h2,
     .race p {
@@ -323,14 +325,25 @@ body {
         width: 100%; /* Görselleri %100 genişlikte yap */
         max-width: none; /* Maksimum genişlik sınırlamasını kaldır */
     }
-    .pilots-container {
-        grid-template-columns: 1fr; /* 4 sütundan 1 sütuna dönüş */
-        gap: 15px; /* Boşluğu biraz azalt */
+    .pilots-container,
+    .teams-container {
+        grid-template-columns: 1fr; /* Tek sütun yap */
     }
 
-    .pilot img {
-        width: 100%;
-        height: 200px; /* Sabit yükseklik */
+    .pilot,
+    .team {
+        width: 100%; /* Kart genişliğini 100% yap */
+    }
+
+    .pilot img,
+    .team img {
+        width: 100%; /* Resimleri genişlikte tam yap */
+        height: auto; /* Yüksekliği orantılı tut */
+    }
+
+    .pilot-info,
+    .team-info {
+        text-align: center; /* Bilgileri ortala */
     }
 }
 .pilots-container {
