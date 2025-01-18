@@ -32,7 +32,8 @@ body {
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
-.container h2{
+
+.container h2 {
     font-size: 2rem;
     color: #16e775;
 }
@@ -257,6 +258,335 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .header {
+        height: auto;
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header h3 {
+        font-size: 1.2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .news-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .news img {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .standings-table, .constructor-standings-table {
+        width: 100%;
+    }
+
+    .standings-table th, .standings-table td, .constructor-standings-table th, .constructor-standings-table td {
+        padding: 10px;
+    }
+
+    .pilots-container {
+        grid-template-columns: 1fr; /* Tek sütun */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .pilot {
+        width: 100%;
+    }
+
+    .pilot img {
+        width: 100%;
+        height: auto;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Tek sütun */
+        grid-template-rows: auto;
+        gap: 15px;
+    }
+
+    .card {
+        height: auto;
+    }
+
+    .race-images {
+        grid-template-columns: 1fr; /* Tek sütun */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .race {
+        width: 100%;
+    }
+
+    .race img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.pilots-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 sütun */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+}
+
+.pilot {
+    position: relative;
+    width: 200px;
+    text-align: center;
+}
+
+.pilot img {
+    width: 200px; /* Sabit genişlik */
+    height: 200px; /* Sabit yükseklik */
+    object-fit: cover; /* Resmi kapsayacak şekilde ayarla */
+    transition: filter 0.3s ease;
+}
+
+.pilot-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pilot img:hover {
+    filter: blur(4px);
+}
+
+.pilot:hover .pilot-info {
+    opacity: 1;
+}
+
+.pilot-name {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.driversheader {
+    font-size: 5rem;
+    color: #16e775;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.teams_header {
+    font-size: 5rem;
+    color: #16e775;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gallery-header {
+    font-size: 5rem;
+    color: #16e775;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Grid düzeni - 2 sütun ve 5 satır */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 sütun */
+    grid-template-rows: repeat(5, 1fr);     /* 5 satır */
+    gap: 30px;
+    width: 100%;
+    max-width: 1500px;
+    grid-auto-rows: 400px;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* Kart stili */
+.card {
+    perspective: 1000px; /* 3D derinlik efekti */
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    height: 400px;
+    width: 100%;
+    background-color: #16e775;
+}
+
+/* Kart içeriği */
+.card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Kartın yüzleri */
+.card:hover .card-content {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+/* Kartın ön yüzü */
+.card-front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo düzeni */
+.team-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out; /* Opaklık değişimi için geçiş */
+}
+
+/* Hover durumunda logo opaklaşıp takım adı görünür olur */
+.card-front:hover .team-logo {
+    opacity: 0.2;  /* Opaklık düşer */
+}
+
+.card-front:hover .team-name {
+    opacity: 1;  /* Takım ismi görünür olur */
+}
+
+/* Kartın arka yüzü */
+.card-back {
+    background-color: #111;
+    color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-back p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.calendar-header {
+    font-size: 5rem;
+    color: #16e775;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.race-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Kenarlardaki boşluğu azalt */
+    padding: 10px;
+    max-width: 95%; /* Genel genişliği artır */
+    margin: auto;
+}
+
+.race {
+    background-color: #000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.race:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.race img {
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+.race img:hover {
+    filter: none;
+    background-color: #16e775; /* Resmin hover rengini yeşil yap */
+    border: 3px solid #16e775; /* Yeşil çerçeve ekle */
+}
+
+.race h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #444;
+}
+
+.race p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+ /* Hover efekti */
+.race:hover h2,
+.race:hover p {
+    background-color: #16e775; /* H1 ve p hoverda yeşil olacak */
+}
+
+.race:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #16e775; /* Hover durumunda arka plan yeşil */
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr; /* Tek sütun */
+        grid-template-rows: auto;
+        gap: 15px;
+    }
+
+    .race-images {
+        grid-template-columns: 1fr; /* Tek sütun */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .race {
+        width: 100%;
+    }
+
+    .race img {
+        width: 100%;
+        height: auto;
+    }
+
     .teams-container,
     .pilots-container,
     .race-images {
@@ -336,234 +666,3 @@ body {
         text-align: center; /* Bilgileri ortala */
     }
 }
-.pilots-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 sütun */
-    gap: 20px;
-    justify-items: center;
-    padding: 20px;
-}
-
-.pilot {
-    position: relative;
-    width: 200px;
-    text-align: center;
-}
-
-.pilot img {
-    width: 200px; /* Sabit genişlik */
-    height: 200px; /* Sabit yükseklik */
-    object-fit: cover; /* Resmi kapsayacak şekilde ayarla */
-    transition: filter 0.3s ease;
-}
-
-.pilot-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.pilot img:hover {
-    filter: blur(4px);
-}
-
-.pilot:hover .pilot-info {
-    opacity: 1;
-}
-
-.pilot-name {
-    margin-top: 10px;
-    font-weight: bold;
-}
-.driversheader
-{
-    font-size: 5rem;
-    color: #16e775;
-    text-align: center;
-    margin-bottom: 20px;
-
-}
-.teams_header{
-
-    font-size: 5rem;
-    color: #16e775;
-    text-align: center;
-    margin-bottom: 20px;
-
-
-}
-.gallery-header {
-    font-size: 5rem;
-    color: #16e775;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Grid düzeni - 2 sütun ve 5 satır */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2 sütun */
-    grid-template-rows: repeat(5, 1fr);     /* 5 satır */
-    gap: 30px;
-    width: 100%;
-    max-width: 1500px;
-    grid-auto-rows: 400px;
-    justify-items: center;
-    align-items: center;
-    margin: 0 auto;
-}
-
-/* Kart stili */
-.card {
-    perspective: 1000px; /* 3D derinlik efekti */
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    height: 400px;
-    width: 100%;
-    background-color: #16e775;
-}
-
-/* Kart içeriği */
-.card-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-}
-
-/* Kartın yüzleri */
-.card:hover .card-content {
-    transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 15px;
-}
-
-/* Kartın ön yüzü */
-.card-front {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Logo düzeni */
-.team-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease-in-out; /* Opaklık değişimi için geçiş */
-}
-
-
-
-/* Hover durumunda logo opaklaşıp takım adı görünür olur */
-.card-front:hover .team-logo {
-    opacity: 0.2;  /* Opaklık düşer */
-}
-
-.card-front:hover .team-name {
-    opacity: 1;  /* Takım ismi görünür olur */
-}
-
-/* Kartın arka yüzü */
-.card-back {
-    background-color: #111;
-    color: #fff;
-    transform: rotateY(180deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.card-back p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-}
-.calendar-header{
-    font-size: 5rem;
-    color: #16e775;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.race-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px; /* Kenarlardaki boşluğu azalt */
-    padding: 10px;
-    max-width: 95%; /* Genel genişliği artır */
-    margin: auto;
-}
-
-.race {
-    background-color: #000;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.race:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.race img {
-    width: 100%;
-    height: auto;
-    transition: filter 0.3s ease;
-}
-
-.race img:hover {
-    filter: none;
-    background-color: #16e775; /* Resmin hover rengini yeşil yap */
-    border: 3px solid #16e775; /* Yeşil çerçeve ekle */
-}
-
-.race h2 {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #444;
-}
-
-.race p {
-    color: #666;
-    margin-bottom: 15px;
-}
-/* Hover efekti */
-.race:hover h2,
-.race:hover p {
-    background-color: #16e775; /* H1 ve p hoverda yeşil olacak */
-}
-.race:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #16e775; /* Hover durumunda arka plan yeşil */
-}
-
