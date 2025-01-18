@@ -257,23 +257,26 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .teams-container {
+    .teams-container,
+    .pilots-container,
+    .race-images {
         grid-template-columns: 1fr; /* Tek sütuna indir */
         gap: 15px; /* Boşlukları azalt */
     }
 
-    .team {
-        width: 100%; /* Kart genişliği tamamen 100% */
+    .team,
+    .pilot,
+    .race {
+        width: 100%; /* Kart genişliğini tamamen 100% yap */
     }
 
-    .team img {
+    .team img,
+    .pilot img,
+    .race img {
         width: 100%; /* Resimleri tam genişlikte göster */
         height: auto; /* Yüksekliği otomatik yap */
     }
 
-    .team-info {
-        text-align: center; /* Bilgileri ortala */
-    }
     .news img {
         max-width: 100%;
         margin: 10px 0;
@@ -295,20 +298,6 @@ body {
     .standings-table th, .standings-table td {
         padding: 10px;
     }
-    .race-images {
-        grid-template-columns: 1fr; /* Tek sütuna indir */
-        gap: 15px; /* Boşluğu azalt */
-    }
-
-    .race {
-        width: 100%; /* Kart genişliğini 100% yap */
-    }
-
-    .race img {
-        width: 100%; /* Resim genişliğini %100 yap */
-        height: auto; /* Yüksekliği orantılı tut */
-    }
-
 
     .race h2,
     .race p {
@@ -325,6 +314,7 @@ body {
         width: 100%; /* Görselleri %100 genişlikte yap */
         max-width: none; /* Maksimum genişlik sınırlamasını kaldır */
     }
+
     .pilots-container,
     .teams-container {
         grid-template-columns: 1fr; /* Tek sütun yap */
