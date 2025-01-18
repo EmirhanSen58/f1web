@@ -32,8 +32,7 @@ body {
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
-
-.container h2 {
+.container h2{
     font-size: 2rem;
     color: #16e775;
 }
@@ -257,83 +256,101 @@ body {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .header {
-        height: auto;
-        padding: 20px;
-    }
-
-    .header h1 {
-        font-size: 2rem;
-    }
-
-    .header h3 {
-        font-size: 1.2rem;
-    }
-
-    .header p {
-        font-size: 1rem;
-    }
-
-    .news-content-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .news img {
-        max-width: 100%;
-        margin: 10px 0;
-    }
-
-    .standings-table, .constructor-standings-table {
-        width: 100%;
-    }
-
-    .standings-table th, .standings-table td, .constructor-standings-table th, .constructor-standings-table td {
-        padding: 10px;
-    }
-
+@media screen and (max-width: 768px) {
+    /* Make the pilot container items more flexible for smaller screens */
     .pilots-container {
-        grid-template-columns: 1fr; /* Tek sütun */
-        gap: 15px;
-        padding: 10px;
+        justify-content: center;
     }
 
     .pilot {
         width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
     }
-
-    .pilot img {
-        width: 100%;
-        height: auto;
-    }
-
     .gallery {
-        grid-template-columns: 1fr; /* Tek sütun */
-        grid-template-rows: auto;
-        gap: 15px;
+        justify-content: center;
     }
 
     .card {
-        height: auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+    /* Show the hamburger menu on mobile */
+    .hamburger-menu {
+        display: flex;
+        margin: 20px;
     }
 
+    /* Sidebar adjustments for smaller screens */
+    .sidebar {
+        left: -250px; /* Keep sidebar hidden by default */
+    }
+
+    .sidebar.active {
+        left: 0; /* Show sidebar when active */
+    }
+
+    /* Change font size for headings and paragraphs */
+    h1 {
+        font-size: 24px;
+    }
+
+    .pilot-info p, .pilot-name {
+        font-size: 14px;
+    }
     .race-images {
-        grid-template-columns: 1fr; /* Tek sütun */
-        gap: 15px;
-        padding: 10px;
+        justify-content: center;
     }
 
     .race {
         width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+    .race h2 {
+        font-size: 20px;
     }
 
-    .race img {
-        width: 100%;
-        height: auto;
+    .race p {
+        font-size: 14px;
     }
 }
 
+@media screen and (max-width: 480px) {
+    /* Further adjustment for very small screens */
+    .hamburger-menu {
+        width: 25px;
+        height: 20px;
+    }
+
+    .hamburger-menu span {
+        height: 3px;
+    }
+    .race h2 {
+        font-size: 18px;
+    }
+
+    .race p {
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+
+    .pilot-info p, .pilot-name {
+        font-size: 12px;
+    }
+
+    .sidebar .nav-links li {
+        font-size: 16px;
+    }
+    .team-logo {
+        width: 60px;
+    }
+
+    
+}
 .pilots-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 sütun */
@@ -383,21 +400,23 @@ body {
     margin-top: 10px;
     font-weight: bold;
 }
-
-.driversheader {
+.driversheader
+{
     font-size: 5rem;
     color: #16e775;
     text-align: center;
     margin-bottom: 20px;
-}
 
-.teams_header {
+}
+.teams_header{
+
     font-size: 5rem;
     color: #16e775;
     text-align: center;
     margin-bottom: 20px;
-}
 
+
+}
 .gallery-header {
     font-size: 5rem;
     color: #16e775;
@@ -473,6 +492,8 @@ body {
     transition: opacity 0.3s ease-in-out; /* Opaklık değişimi için geçiş */
 }
 
+
+
 /* Hover durumunda logo opaklaşıp takım adı görünür olur */
 .card-front:hover .team-logo {
     opacity: 0.2;  /* Opaklık düşer */
@@ -498,14 +519,12 @@ body {
     font-weight: bold;
     text-align: center;
 }
-
-.calendar-header {
+.calendar-header{
     font-size: 5rem;
     color: #16e775;
     text-align: center;
     margin-bottom: 20px;
 }
-
 .race-images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -552,117 +571,14 @@ body {
     color: #666;
     margin-bottom: 15px;
 }
-
- /* Hover efekti */
+/* Hover efekti */
 .race:hover h2,
 .race:hover p {
     background-color: #16e775; /* H1 ve p hoverda yeşil olacak */
 }
-
 .race:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background-color: #16e775; /* Hover durumunda arka plan yeşil */
 }
 
-@media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: 1fr; /* Tek sütun */
-        grid-template-rows: auto;
-        gap: 15px;
-    }
-
-    .race-images {
-        grid-template-columns: 1fr; /* Tek sütun */
-        gap: 15px;
-        padding: 10px;
-    }
-
-    .race {
-        width: 100%;
-    }
-
-    .race img {
-        width: 100%;
-        height: auto;
-    }
-
-    .teams-container,
-    .pilots-container,
-    .race-images {
-        grid-template-columns: 1fr; /* Tek sütuna indir */
-        gap: 15px; /* Boşlukları azalt */
-    }
-
-    .team,
-    .pilot,
-    .race {
-        width: 100%; /* Kart genişliğini tamamen 100% yap */
-    }
-
-    .team img,
-    .pilot img,
-    .race img {
-        width: 100%; /* Resimleri tam genişlikte göster */
-        height: auto; /* Yüksekliği otomatik yap */
-    }
-
-    .news img {
-        max-width: 100%;
-        margin: 10px 0;
-    }
-
-    .news-content-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .news-content {
-        text-align: center;
-    }
-
-    .standings-table {
-        width: 100%;
-    }
-
-    .standings-table th, .standings-table td {
-        padding: 10px;
-    }
-
-    .race h2,
-    .race p {
-        font-size: 16px; /* Yazı boyutlarını küçült */
-    }
-
-    /* Haberler için mobil uyum */
-    .news-content-wrapper {
-        flex-direction: column; /* Mobilde alt alta yerleştir */
-        text-align: center; /* Ortala */
-    }
-
-    .news img {
-        width: 100%; /* Görselleri %100 genişlikte yap */
-        max-width: none; /* Maksimum genişlik sınırlamasını kaldır */
-    }
-
-    .pilots-container,
-    .teams-container {
-        grid-template-columns: 1fr; /* Tek sütun yap */
-    }
-
-    .pilot,
-    .team {
-        width: 100%; /* Kart genişliğini 100% yap */
-    }
-
-    .pilot img,
-    .team img {
-        width: 100%; /* Resimleri genişlikte tam yap */
-        height: auto; /* Yüksekliği orantılı tut */
-    }
-
-    .pilot-info,
-    .team-info {
-        text-align: center; /* Bilgileri ortala */
-    }
-}
