@@ -256,100 +256,95 @@ body {
 }
 
 /* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-    /* Make the pilot container items more flexible for smaller screens */
-    .pilots-container {
-        justify-content: center;
+@media (max-width: 768px) {
+    .teams-container {
+        grid-template-columns: 1fr; /* Tek sütuna indir */
+        gap: 15px; /* Boşlukları azalt */
     }
 
-    .pilot {
-        width: 100%;
-        max-width: 300px;
+    .team {
+        width: 100%; /* Kart genişliği tamamen 100% */
+    }
+
+    .team img {
+        width: 100%; /* Resimleri tam genişlikte göster */
+        height: auto; /* Yüksekliği otomatik yap */
+    }
+
+    .team-info {
+        text-align: center; /* Bilgileri ortala */
+    }
+    .news img {
+        max-width: 100%;
         margin: 10px 0;
     }
-    .gallery {
-        justify-content: center;
+
+    .news-content-wrapper {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .card {
+    .news-content {
+        text-align: center;
+    }
+
+    .standings-table {
         width: 100%;
-        max-width: 300px;
-        margin: 10px 0;
-    }
-    /* Show the hamburger menu on mobile */
-    .hamburger-menu {
-        display: flex;
-        margin: 20px;
     }
 
-    /* Sidebar adjustments for smaller screens */
-    .sidebar {
-        left: -250px; /* Keep sidebar hidden by default */
-    }
-
-    .sidebar.active {
-        left: 0; /* Show sidebar when active */
-    }
-
-    /* Change font size for headings and paragraphs */
-    h1 {
-        font-size: 24px;
-    }
-
-    .pilot-info p, .pilot-name {
-        font-size: 14px;
+    .standings-table th, .standings-table td {
+        padding: 10px;
     }
     .race-images {
-        justify-content: center;
+        grid-template-columns: 1fr; /* Tek sütuna indir */
+        gap: 15px; /* Boşluğu azalt */
     }
 
     .race {
-        width: 100%;
-        max-width: 300px;
-        margin: 10px 0;
-    }
-    .race h2 {
-        font-size: 20px;
+        width: 100%; /* Kart genişliğini 100% yap */
     }
 
+    .race img {
+        width: 100%; /* Resim genişliğini %100 yap */
+        height: auto; /* Yüksekliği orantılı tut */
+    }
+
+
+    .race h2,
     .race p {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    /* Further adjustment for very small screens */
-    .hamburger-menu {
-        width: 25px;
-        height: 20px;
+        font-size: 16px; /* Yazı boyutlarını küçült */
     }
 
-    .hamburger-menu span {
-        height: 3px;
-    }
-    .race h2 {
-        font-size: 18px;
-    }
-
-    .race p {
-        font-size: 12px;
-    }
-    h1 {
-        font-size: 20px;
+    /* Haberler için mobil uyum */
+    .news-content-wrapper {
+        flex-direction: column; /* Mobilde alt alta yerleştir */
+        text-align: center; /* Ortala */
     }
 
-    .pilot-info p, .pilot-name {
-        font-size: 12px;
+    .news img {
+        width: 100%; /* Görselleri %100 genişlikte yap */
+        max-width: none; /* Maksimum genişlik sınırlamasını kaldır */
+    }
+    .pilots-container,
+    .teams-container {
+        grid-template-columns: 1fr; /* Tek sütun yap */
     }
 
-    .sidebar .nav-links li {
-        font-size: 16px;
-    }
-    .team-logo {
-        width: 60px;
+    .pilot,
+    .team {
+        width: 100%; /* Kart genişliğini 100% yap */
     }
 
-    
+    .pilot img,
+    .team img {
+        width: 100%; /* Resimleri genişlikte tam yap */
+        height: auto; /* Yüksekliği orantılı tut */
+    }
+
+    .pilot-info,
+    .team-info {
+        text-align: center; /* Bilgileri ortala */
+    }
 }
 .pilots-container {
     display: grid;
